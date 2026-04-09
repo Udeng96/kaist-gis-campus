@@ -1,0 +1,122 @@
+@charset "utf-8";
+
+.tui-ico-check, /*체크박스 아이콘*/
+.tui-ico-checked, /*선택된 체크박스 아이콘*/
+.tui-ico-tree {
+  display: inline-block;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.tui-ico-check{
+  margin-right: 7px;
+}
+
+.tui-ico-check input {
+  position: absolute;
+  left: -9999px;
+}
+
+.tui-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.tui-checkbox.tui-checkbox-root.tui-is-checked .tui-ico-check::after{ /* 하위 체크 아이콘*/
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4.5 8H11.6111' stroke='white' stroke-width='1.4875' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tui-checkbox.tui-is-checked .tui-ico-check::after{/*체크박스 아이콘*/
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M5 7.52381L7.53968 10.0635L11.6032 6' stroke='white' stroke-width='1.4875' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+
+.tui-ico-tree { /* 화살표 아이콘 */
+  display: inline-block;
+  width: 5px;
+  height: 8px;
+  cursor: pointer;
+}
+
+.tui-ico-tree::before {
+  content: "";
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+.tui-tree-wrap { /* 트리 제일 상단*/
+  display: inline-block;
+  margin: 0;
+
+}
+
+.tui-tree-closed .tui-ico-tree::before,
+.tui-tree-node .tui-tree-closed .tui-ico-tree::before{  /*트리 아이콘 닫힌 상태*/
+  transform: rotate(-90deg) translateX(-1px);
+}
+
+.tui-tree-opened .tui-ico-tree::before,
+.tui-tree-node .tui-tree-opened .tui-ico-tree::before{ /*트리 아이콘 열린 상태*/
+  transform: rotate(0deg) translateY(4px);
+}
+
+.tui-tree-wrap .tui-tree,
+.tui-tree-wrap .tui-tree-subtree { /*서브 트리*/
+  margin: 0;
+  padding-left: 0;
+}
+
+
+.tui-tree-wrap .tui-tree-toggle-btn { /* 트리 토글버튼 네임 옆 화살표*/
+  margin-right: 4px;
+  width: 13px;
+  height: 12px;
+  font-size: 0;
+}
+
+.tui-tree-text { /*글자 들어가는 영역*/
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  padding: 1px 0;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  zoom: 1;
+}
+
+.tui-tree-content-wrapper { /* 트리 콘텐트*/
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+

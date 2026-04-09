@@ -1,0 +1,166 @@
+.onboarding {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 350ms, opacity 250ms;
+  background: linear-gradient(100deg, #100074 3.28%, #15002A 84.86%);
+}
+.onboarding.active {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 450ms, opacity 450ms;
+}
+.onboarding__item {
+  display: none;
+}
+.onboarding__item.active {
+  display: block;
+}
+.onboarding__item img {
+  width: 100%;
+  height: 100%;
+}
+.onboarding .pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 28px;
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.onboarding .pagination ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+.onboarding .pagination .num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: -0.4px;
+  border-radius: 50%;
+  background: #6F6F6F;
+  cursor: pointer;
+}
+.onboarding .pagination .num:hover {
+  color: #fff;
+  background: #909090;
+}
+.onboarding .pagination .num:hover ~ .onboarding__tooltip {
+  display: block;
+}
+.onboarding .pagination__item {
+  position: relative;
+}
+.onboarding .pagination__item.active .num {
+  color: #fff;
+  background: #7F7AFF;
+}
+.onboarding__tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 360px;
+  min-height: 24px;
+  padding: 8px 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #FFF;
+  white-space: nowrap;
+  border-radius: 4px;
+  border: 1px solid #7F7AFF;
+  background: #26283F;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
+}
+.onboarding__tooltip::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(100% - 5px);
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  border: 1px solid #7F7AFF;
+  border-top: none;
+  border-left: none;
+  background: #26283F;
+}
+
+.btn-onboarding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-left: auto;
+  padding: 9px 20px;
+  font-size: 16px;
+  letter-spacing: -0.32px;
+  color: #D9DFFF;
+  border-radius: 999px;
+  border: 2px solid rgba(155, 81, 224, 0.8);
+  background: rgba(155, 81, 224, 0.5);
+}
+.btn-onboarding::before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Ccircle cx='9' cy='9' r='7.89286' stroke='white' stroke-width='1.21429'/%3E%3Ccircle cx='8.99956' cy='5.35491' r='1.21429' fill='white'/%3E%3Cpath d='M10.215 8.39621C10.215 8.0589 9.55974 7.78906 9.12287 7.78906C8.57678 7.78906 8.05949 7.89025 7.78645 8.39621C7.06738 9.72872 8.57679 8.4974 8.57679 9.00335C8.57679 9.5093 8.39358 10.2176 7.78645 11.4319C7.26108 12.4827 6.57219 13.8605 7.78645 13.8605C9.60794 13.8605 10.6402 13.1522 10.8222 12.6462C10.8222 12.3089 10.7179 11.7199 10.215 12.0391C8.93974 12.8486 8.27148 13.2533 9.60791 10.8248C10.2301 9.69417 10.215 8.56486 10.215 8.39621Z' fill='white'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.btn-onboarding:hover {
+  background: #9B51E0;
+  border-color: #9B51E0;
+  color: #FFF;
+}
+.btn-onboarding-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 300px;
+  height: 66px;
+  margin: 0 auto;
+  font-size: 26px;
+  font-weight: 500;
+  color: #FFF;
+  letter-spacing: -0.52px;
+  border-radius: 999px;
+  background: #8C8C8C;
+  box-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.25);
+}
+.btn-onboarding-close::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 31 30' fill='none'%3E%3Cpath d='M15.5029 13.5908L23.792 5.30566L25.2061 6.71973L16.917 15.0049L25.2061 23.29L23.792 24.7041L15.5029 16.418L7.20605 24.7129L5.79199 23.2988L14.0889 15.0049L5.79199 6.71094L7.20605 5.29688L15.5029 13.5908Z' fill='white'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.btn-onboarding-close:hover {
+  background: #737493;
+}
+
+/*# sourceMappingURL=onboarding.css.map */

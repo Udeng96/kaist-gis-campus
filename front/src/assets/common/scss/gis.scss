@@ -1,0 +1,1244 @@
+@use 'variable' as *;
+
+.building_icon,
+.cctv_icon {
+  background: none !important;
+  border: none !important;
+}
+
+.building_icon .gis__icon,
+.cctv_icon .gis__icon {
+  cursor: pointer;
+}
+
+.gis {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #535353;
+
+
+  &__in {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+  }
+
+  &__icon {
+    position: absolute;
+    background: no-repeat center/100%;
+
+    &-wrap {
+      position: absolute;
+
+      .gis__icon {
+        position: static;
+      }
+
+      .num {
+        position: absolute;
+        top: -4px;
+        left: calc(100% - 14px);
+        height: 20px;
+        padding: 4px 8px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #FFF;
+        letter-spacing: -0.24px;
+        border-radius: 99px;
+        border: 1px solid;
+      }
+    }
+
+    &~.name {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: max-content;
+      max-width: 100px;
+      padding: 2px 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #FFF;
+      letter-spacing: -0.13px;
+      border-radius: 4px;
+      background: rgba(11, 15, 23, 0.70);
+
+      span {
+        display: none;
+        padding-top: 2px;
+        font-size: 13px;
+        font-weight: 400;
+      }
+    }
+
+    &.active {
+      &~.name {
+        span {
+          display: block;
+        }
+      }
+    }
+
+    &.cctv {
+      width: 13px;
+      height: 13px;
+      background: no-repeat center/100%;
+
+      &:disabled {
+        opacity: 1;
+      }
+
+      &.zoom {
+        width: 24px;
+        height: 24px;
+      }
+
+      &.num {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #FFF;
+        text-align: center;
+
+        &:disabled {
+          span {
+            opacity: 0.4;
+          }
+        }
+      }
+
+      &-in {
+        background-image: url('../../image/marker/btc_cctv-blue_normal_13x13.png');
+
+        &:hover {
+          background-image: url('../../image/marker/btc_cctv-blue_hover_13x13.png');
+        }
+
+        &:disabled {
+          background-image: url('../../image/marker/btc_cctv-blue_disabled_13x13.png');
+        }
+
+        &.zoom {
+          background-image: url('../../image/marker/btc_cctv-blue_normal_24x24.png');
+
+          &:hover {
+            background-image: url('../../image/marker/btc_cctv-blue_hover_24x24.png');
+          }
+
+          &:disabled {
+            background-image: url('../../image/marker/btc_cctv-blue_disabled_24x24.png');
+          }
+        }
+
+        &.num {
+          background-image: url('../../image/marker/btc_cctv-blue_active_32x32.png');
+
+          &:disabled {
+            background-image: url('../../image/marker/btc_cctv-blue_disabled_32x32.png');
+          }
+        }
+      }
+
+      &-out {
+        background-image: url('../../image/marker/btc_cctv-green_normal_13x13.png');
+
+        &:hover {
+          background-image: url('../../image/marker/btc_cctv-green_hover_13x13.png');
+        }
+
+        &:disabled {
+          background-image: url('../../image/marker/btc_cctv-green_disabled_13x13.png');
+        }
+
+        &.zoom {
+          background-image: url('../../image/marker/btc_cctv-green_normal_24x24.png');
+
+          &:hover {
+            background-image: url('../../image/marker/btc_cctv-green_hover_24x24.png');
+          }
+
+          &:disabled {
+            background-image: url('../../image/marker/btc_cctv-green_disabled_24x24.png');
+          }
+        }
+
+        &.num {
+          background-image: url('../../image/marker/btc_cctv-green_active_32x32.png');
+
+          &:disabled {
+            background-image: url('../../image/marker/btc_cctv-green_disabled_32x32.png');
+          }
+        }
+      }
+
+      &-flame {
+        background-image: url('../../image/marker/btc_cctv-purple_normal_13x13.png');
+
+        &:hover {
+          background-image: url('../../image/marker/btc_cctv-purple_hover_13x13.png');
+        }
+
+        &:disabled {
+          background-image: url('../../image/marker/btc_cctv-purple_disabled_13x13.png');
+        }
+
+        &.zoom {
+          background-image: url('../../image/marker/btc_cctv-purple_normal_24x24.png');
+
+          &:hover {
+            background-image: url('../../image/marker/btc_cctv-purple_hover_24x24.png');
+          }
+
+          &:disabled {
+            background-image: url('../../image/marker/btc_cctv-purple_disabled_24x24.png');
+          }
+        }
+
+        &.num {
+          background-image: url('../../image/marker/btc_cctv-purple_active_32x32.png');
+
+          &:disabled {
+            background-image: url('../../image/marker/btc_cctv-purple_disabled_32x32.png');
+          }
+        }
+      }
+    }
+
+    &.building {
+      width: 26px;
+      height: 26px;
+      background-image: url('../../image/marker/btc_building_normal_26x26.png');
+
+      &:hover {
+        background-image: url('../../image/marker/btc_building_hover_26x26.png');
+      }
+
+      &.active {
+        width: 45px;
+        height: 62px;
+        background-image: url('../../image/marker/btc_building_active_45x62.png');
+      }
+    }
+
+    &.event {
+      width: 45px;
+      height: 62px;
+
+
+      &-fire {
+        background-image: url('../../image/marker/btc_event-fire_normal_45x62.png');
+
+        &:hover {
+          background-image: url('../../image/marker/btc_event-fire_hover_45x62.png');
+        }
+
+        &.active {
+          background-image: url('../../image/marker/btc_event-fire_normal_45x62.png');
+        }
+      }
+
+      &-flame {
+        background-image: url('../../image/marker/btc_event-flame_normal_45x62.png');
+
+        &:hover {
+          background-image: url('../../image/marker/btc_event-flame_hover_45x62.png');
+        }
+
+        &.active {
+          background-image: url('../../image/marker/btc_event-flame_normal_45x62.png');
+        }
+      }
+
+      &-gas01 {
+        background-image: url('../../image/marker/btc_event-gas01_normal_45x62.png');
+
+        &:hover {
+          background-image: url('../../image/marker/btc_event-gas01_hover_45x62.png');
+        }
+
+        &.active {
+          background-image: url('../../image/marker/btc_event-gas01_normal_45x62.png');
+        }
+      }
+
+      &-gas02 {
+        background-image: url('../../image/marker/btc_event-gas02_normal_45x62.png');
+
+        &:hover {
+          background-image: url('../../image/marker/btc_event-gas02_hover_45x62.png');
+        }
+
+        &.active {
+          background-image: url('../../image/marker/btc_event-gas02_normal_45x62.png');
+        }
+      }
+    }
+
+    &.register {
+      width: 40px;
+      height: 52px;
+      background-image: url('../../image/marker/btc_registeration_normal_40x52.png');
+      cursor: grab;
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+
+    &.modify {
+      width: 40px;
+      height: 52px;
+      background-image: url('../../image/marker/btc_modify_normal_40x52.png');
+      cursor: grab;
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+  }
+
+  .marker-tooltip {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 4px);
+    transform: translateY(-50%);
+  }
+
+  &__event {
+    position: absolute;
+    width: 132px;
+    height: 132px;
+
+    .gis__icon-wrap {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:has(.event-fire) {
+      .event__dot {
+        background-color: rgba(255, 67, 89, .45);
+      }
+
+      .name {
+        background: #F7635C;
+      }
+    }
+
+    &:has(.event-flame) {
+      .event__dot {
+        background-color: rgba(127, 102, 255, .45);
+      }
+
+      .name {
+        background: #7F66FF;
+      }
+    }
+
+    &:has(.event-gas01) {
+      .event__dot {
+        background-color: rgba(255, 148, 207, .45);
+      }
+
+      .name {
+        background: #FF94CF;
+      }
+    }
+
+    &:has(.event-gas02) {
+      .event__dot {
+        background-color: rgba(240, 126, 44, .45);
+      }
+
+      .name {
+        background: #F07E2C;
+      }
+    }
+
+
+    .event__dot {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: event 2s ease-in-out infinite;
+      opacity: .35;
+
+      &:nth-child(2) {
+        opacity: .15;
+        animation-delay: 400ms;
+      }
+
+      &:nth-child(3) {
+        opacity: .45;
+        animation-delay: 800ms;
+      }
+    }
+
+    @keyframes event {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+  }
+
+
+  .gis__patrol {
+    position: absolute;
+    width: 192px;
+    height: 192px;
+
+    .gis__icon {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 0;
+      }
+
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 4px solid #789EE6;
+      opacity: 0;
+      animation: pulse 2000ms infinite;
+
+      $delays: 0, 200, 400, 600, 800, 1000, 1200, ; // 밀리초 단위
+      $min-size: 56px;
+      $max-size: 192px;
+      $steps: length($delays);
+      $step-size: (
+        $max-size - $min-size) / ($steps - 1
+      );
+
+
+    // 시작/끝 투명도 값
+    $start-opacity: 0.85;
+    $end-opacity: 0.15;
+    $opacity-step: (
+      $start-opacity - $end-opacity) / ($steps - 1
+    );
+
+
+  @for $i from 1 through length($delays) {
+    &:nth-of-type(#{$i}) {
+      $size: $min-size + ($i - 1) * $step-size;
+      $opacity: $start-opacity - ($i - 1) * $opacity-step;
+
+      width: $size;
+      height: $size;
+      border-color: rgba(120, 158, 230, $opacity);
+      animation-delay: #{nth($delays, $i)}ms;
+    }
+  }
+}
+}
+
+.radius {
+  position: absolute;
+  width: 476px;
+  height: 476px;
+  border-radius: 476px;
+  border: 2px solid rgba(255, 81, 78, 0.50);
+  background: rgba(255, 81, 78, 0.16);
+}
+
+&__search {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  .input {
+    width: 256px;
+    position: relative;
+  }
+
+  &__input {
+    padding: 8px 76px 8px 12px;
+    font-size: 14px;
+    color: var(--neutral-9);
+    border-radius: 6px;
+    border: 1px solid var(--neutral-2);
+    background: #FFF;
+
+    &::placeholder {
+      color: var(--neutral-4);
+    }
+
+    &:hover {
+      outline: solid 1px var(--blue-light);
+      border-color: var(--blue-light);
+    }
+
+    &:focus {
+      outline: solid 1px var(--blue-light);
+      border-color: var(--blue-light);
+      background: #FFF;
+    }
+
+    &[type="search"]::-webkit-search-cancel-button {
+      position: absolute;
+      right: 40px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: url('../../image/btc/btc_delete-light_normal_30x30.svg') no-repeat center/auto;
+      cursor: pointer;
+      z-index: 1;
+
+      &:hover {
+        background-image: url('../../image/btc/btc_delete-light_hover_30x30.svg')
+      }
+    }
+  }
+
+  .result {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: -20px;
+    height: auto;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--neutral-2);
+    background: #FFF;
+    box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.14);
+
+    .no-data {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 80px;
+    }
+
+    &__head {
+      padding: 14px 16px 8px;
+      color: var(--neutral-9);
+      font-size: 14px;
+      border-bottom: 1px solid var(--neutral-2);
+
+      span {
+        padding-left: 4px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--blue);
+      }
+    }
+
+    &__body {
+      padding: 8px 4px 8px 8px;
+    }
+
+    &__list {
+      height: 100%;
+      max-height: 200px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-track {
+        border-radius: 3px;
+        background-color: #D1D5DB;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background-color: #9CA3AF;
+
+        &:hover {
+          background-color: #6B7280;
+        }
+      }
+    }
+
+    &__footer {
+      padding: 8px;
+      border-top: 1px solid var(--neutral-2);
+
+      button {
+        width: 100%;
+        height: 30px;
+        color: var(--neutral-10);
+        font-size: 14px;
+        letter-spacing: -0.28px;
+        border-radius: 6px;
+        border: 1px solid var(--neutral-2);
+        background: #FFF;
+
+        &:hover {
+          background-color: var(--neutral-1);
+        }
+      }
+    }
+
+    .message {
+      color: var(--neutral-7);
+      font-size: 12px;
+      line-height: 14px;
+      letter-spacing: 0.24px;
+      text-align: center;
+
+      span {
+        color: var(--blue);
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      width: 230px;
+      height: 36px;
+      padding: 6px 8px;
+      color: var(--neutral-7);
+      font-size: 13px;
+      letter-spacing: 0.26px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        display: block;
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        margin-right: 2px;
+        background: no-repeat center/100%;
+      }
+
+      &:hover {
+        background: rgba(209, 213, 219, 0.40);
+      }
+
+      p {
+        line-height: 16px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        span {
+          position: relative;
+          color: var(--blue);
+        }
+
+        &:hover {
+          text-decoration: underline;
+          text-underline-offset: 2px;
+
+          span {
+            &::before {
+              content: '';
+              display: block;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 1px;
+              background-color: var(--blue);
+            }
+          }
+        }
+      }
+
+      strong {
+        color: var(--neutral-75);
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      &--building {
+        &::before {
+          background-image: url('../../image/ic/ic_building-office_default_fill_normal_gray_24.svg');
+        }
+      }
+
+      &--cctv {
+        color: var(--neutral-75);
+        font-size: 14px;
+        font-weight: 500;
+
+        &::before {
+          background-image: url('../../image/ic/ic_alley-cctv-02_right_line_normal_gray_24.svg');
+        }
+      }
+
+    }
+  }
+
+  &.active {
+    .gis__search__input {
+      outline: solid 1px var(--blue-light);
+      border-color: var(--blue-light);
+    }
+
+    .result {
+      display: block;
+    }
+  }
+}
+
+&__legend {
+  position: absolute;
+  bottom: 44px;
+  right: 20px;
+  border-radius: 6px;
+  border: 1px solid var(--neutral-2);
+  background: #FFF;
+  backdrop-filter: blur(2.133px);
+
+  &.open {
+    .gis__legend__head {
+      border-color: var(--neutral-2);
+
+      &::after {
+        transform: rotate(-180deg);
+      }
+    }
+
+    .gis__legend__body {
+      display: flex;
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 4px;
+    width: 100%;
+    min-width: 160px;
+    padding: 8px 8px 8px 14px;
+    font-size: 16px;
+    color: var(--neutral-8);
+    border-bottom: 1px solid transparent;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url('../../image/btc/btc_list-arrow_normal_24.svg') no-repeat center/auto;
+    }
+
+    &:hover {
+      &::after {
+        background-image: url('../../image/btc/btc_list-arrow_hover_24.svg');
+      }
+    }
+  }
+
+  &__body {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    padding: 6px 14px 10px 14px;
+
+    ul {
+      display: flex;
+      gap: 0 2px;
+
+      &.row {
+        gap: 12px;
+
+        .icon__item {
+          height: 34px;
+          flex-direction: row;
+
+          i {
+            width: 30px;
+            height: 34px;
+          }
+        }
+      }
+    }
+
+
+    .icon__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+
+      i {
+        width: 60px;
+        height: 50px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+      }
+
+      p {
+        font-size: 12px;
+        color: var(--neutral-8);
+        text-align: center;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--neutral-8);
+    line-height: 16px;
+  }
+
+  .ic {
+    &-cctv {
+      &-in {
+        background-image: url('../../image/marker/btc_cctv-blue_normal_13x13.png');
+      }
+
+      &-out {
+        background-image: url('../../image/marker/btc_cctv-green_normal_13x13.png');
+      }
+
+      &-fire {
+        background-image: url('../../image/marker/btc_cctv-purple_normal_13x13.png');
+      }
+    }
+
+    &-gas01 {
+      background-image: url('../../image/img/img_legend-gas01_26x32.svg');
+    }
+
+    &-gas02 {
+      background-image: url('../../image/img/img_legend-gas02_26x32.svg');
+    }
+
+    &-flame {
+      background-image: url('../../image/img/img_legend-flame_26x32.svg');
+    }
+
+    &-fire {
+      background-image: url('../../image/img/img_legend-fire_26x32.svg');
+    }
+  }
+}
+
+&__zone {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute;
+  bottom: 44px;
+  left: 20px;
+  width: 134px;
+  padding: 10px 8px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.80);
+  backdrop-filter: blur(2.133px);
+
+  &__title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--neutral-9);
+    letter-spacing: -0.32px;
+  }
+
+  .map {
+    position: relative;
+    width: 95px;
+    height: 81px;
+
+    .zone {
+      position: absolute;
+      cursor: pointer;
+
+      &-n {
+        top: 0;
+        left: 0;
+        color: #C33C41;
+
+        &:hover {
+          color: #E4262D;
+        }
+      }
+
+      &-e {
+        top: 0;
+        left: 43px;
+        color: #EB9455;
+
+        &:hover {
+          color: #F6812C;
+        }
+      }
+
+      &-w {
+        top: 46px;
+        left: 25px;
+
+        color: #3DA447;
+
+        &:hover {
+          color: #41C64E;
+        }
+      }
+    }
+  }
+
+  .btn-zone-full {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30px;
+    color: var(--neutral-10);
+    font-size: 14px;
+    letter-spacing: -0.28px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.60);
+
+    &::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 16px;
+      margin-right: 4px;
+      background: url('../../image/ic/ic_map-poi_default_line_normal_black_16.svg') no-repeat center/100%;
+    }
+
+    &:hover {
+      background-color: #fff;
+    }
+  }
+}
+
+&__map {
+  display: grid;
+  grid-template-columns: repeat(2, 48px);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 96px;
+  height: 40px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+&__controller {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: absolute;
+  top: 92px;
+  right: 20px;
+
+  &.active {
+    right: 466px;
+  }
+
+  .frame {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    &:disabled {
+      opacity: 1;
+      pointer-events: none;
+    }
+  }
+}
+
+
+.btn {
+  &__gis {
+
+    &-type {
+      width: 100%;
+      height: 100%;
+      color: var(--neutral-6);
+      font-size: 14px;
+      font-weight: 500;
+      background: #FFF;
+
+      &:hover {
+        background: var(--neutral-2);
+      }
+
+      &.active {
+        font-weight: 600;
+        color: #fff;
+        background: var(--blue);
+      }
+    }
+  }
+
+  &__zoom {
+    width: 40px;
+    height: 40px;
+
+    $_icList: plus, minus;
+
+    @each $icon in $_icList {
+      &--#{$icon} {
+        background-image: url("../../image/btc/btc_#{$icon}_normal_40x40.svg");
+
+        &:hover {
+          background-image: url("../../image/btc/btc_#{$icon}_hover_40x40.svg");
+        }
+
+        &:active {
+          background-image: url("../../image/btc/btc_#{$icon}_click_40x40.svg");
+        }
+
+        &:disabled {
+          background-image: url("../../image/btc/btc_#{$icon}_disabled_40x40.svg");
+        }
+      }
+    }
+  }
+
+}
+
+}
+
+.cctv__layer {
+  position: absolute;
+  width: 384px;
+  height: 256px;
+  border-radius: 12px;
+  border: 1px solid var(--neutral-5);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
+
+  &:has(.cctv__layer__head > .frame:active) {
+    border-color: var(--neutral-3);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.60);
+
+    .cctv__layer__head {
+      background-color: var(--neutral-5);
+    }
+
+    .cctv__layer__footer {
+      background-color: var(--neutral-5);
+    }
+  }
+
+  &--patrol {
+    width: 560px;
+    height: 417px;
+
+    .cctv__layer__head {
+      background-color: var(--neutral-9);
+
+      p {
+        width: 440px;
+      }
+    }
+
+    .cctv__layer__body {
+      height: calc(100% - 40px - 56px - 4px);
+      border-radius: 0;
+    }
+
+    .cctv__layer__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 14px 10px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #FFF;
+      letter-spacing: -0.16px;
+      border-radius: 0 0 12px 12px;
+      background-color: var(--neutral-9);
+
+      .select-box {
+        width: 120px;
+      }
+
+      .frame {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    }
+  }
+
+  .bar-wrap {
+    width: 100%;
+    height: 4px;
+    background-color: #2A3244;
+
+    .bar {
+      height: 100%;
+      background-color: var(--blue-light);
+    }
+  }
+
+  &--in {
+    .cctv__layer__head {
+      .num {
+        background: #3B82F6;
+      }
+    }
+  }
+
+  &--out {
+    .cctv__layer__head {
+      .num {
+        background: #76D066;
+      }
+    }
+  }
+
+  &--flame {
+    .cctv__layer__head {
+      .num {
+        background: #907AFF;
+      }
+    }
+  }
+
+  .error-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img{
+      width: 28px;
+      height: 28px;
+    }
+
+    button {
+      width: 32px;
+      height: 32px;
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--neutral-3);
+      line-height: 1.42;
+      text-align: center;
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-right: 14px;
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1px solid var(--neutral-5);
+    background: var(--neutral-7);
+
+    .frame {
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      height: 100%;
+      cursor: grab;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 14px;
+        height: 24px;
+        margin-right: 4px;
+        background: url('../../image/ic/ic_drag_default_fill_normal_color01_15x24.svg');
+      }
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+
+    .num {
+      width: 20px;
+      height: 20px;
+      margin-right: 6px;
+      padding: 4px 0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFF;
+      border-radius: 5px;
+    }
+
+    p {
+      width: 266px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #FFF;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    button {
+      margin-left: auto;
+    }
+  }
+
+  &__body {
+    position: relative;
+    height: calc(100% - 40px);
+    border-radius: 0 0 12px 12px;
+    background-color: var(--neutral-8);
+    overflow: hidden;
+  }
+
+  &__in {
+    width: 100%;
+    height: 100%;
+  }
+
+  .btn-expand {
+    right: 10px;
+    bottom: 10px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .btn-close {
+    background-image: url('../../image/btc/btc_close-02_normal_30x30.svg');
+
+    &:hover {
+      background-image: url('../../image/btc/btc_close-02_hover_30x30.svg');
+    }
+  }
+}

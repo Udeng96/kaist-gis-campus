@@ -1,0 +1,291 @@
+.datepicker__wrap {
+  position: relative;
+
+
+  &.full {
+    .datepicker {
+      width: 100%;
+    }
+  }
+
+  .datepicker {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 40px;
+
+
+    &__input {
+      // datepicker input
+      padding: 10px 10px 10px 15px;
+      font-size: 14px;
+      color: #FFF;
+      letter-spacing: -0.26px;
+      border-radius: 6px;
+      border: 1px solid #4E566E;
+      background: #2A3244;
+
+      &:hover {
+        border-color: rgba(84, 182, 232, 0.50);
+        outline: solid 1px rgba(84, 182, 232, 0.50);
+      }
+
+      &:focus {
+        border-color: #54B6E8;
+        outline: solid 1px #54B6E8;
+      }
+
+      &:disabled {
+        opacity: .4;
+        pointer-events: none;
+
+        &~.datepicker__icon {
+          opacity: .4;
+        }
+      }
+    }
+
+    &__icon {
+      // datepicker 아이콘
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      background: url('../../image/ic/ic_calendar_default_line_normal_white_28.svg') no-repeat center/100%;
+    }
+
+    #hist-endpicker__container {
+      .tui-datepicker.tui-rangepicker {
+        right: 0;
+      }
+    }
+  }
+
+  // 날짜 선택형 일 때 
+  &--Range {
+    display: flex;
+    align-items: center;
+
+    .term {
+      margin: 0 5px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #FFF;
+    }
+  }
+
+  //캘린더 수정
+  .tui-datepicker {
+    top: calc(100% + 6px);
+    border-radius: 12px;
+    border: 1px solid #3A4357;
+    background: #2A3244;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.06), 0 6px 18px 0 rgba(0, 0, 0, 0.06);
+
+    .tui-datepicker-type-date {
+      //캘린더 가로
+      width: 220px;
+      padding: 12px;
+    }
+  }
+
+  .tui-calendar {
+    width: 100%;
+
+    caption {
+      display: none;
+    }
+
+    &-header {
+      // 위에 날짜 부분
+      border: none;
+
+      &-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 24px;
+        padding: 0;
+
+        .tui-calendar-title {
+          font-size: 15px;
+          color: #fff;
+          font-weight: 500;
+          line-height: 16px;
+          letter-spacing: -0.16px;
+        }
+      }
+    }
+
+    &-btn {
+      position: relative;
+      width: 24px;
+      height: 100%;
+
+      &::after {
+        content: '';
+        display: inline-block;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+
+      &.tui-open.tui-hidden {
+        pointer-events: none;
+      }
+    }
+
+
+    &-body {
+
+      //아래 요일, 날짜들 부분
+      &-inner {
+        font-size: 13px;
+        font-weight: 400;
+        color: #fff;
+        letter-spacing: 0.26px;
+        border-spacing: 0 4px;
+        border-collapse: separate;
+
+        &:has(.tui-calendar-month-group, .tui-calendar-year-group) {
+          border-spacing: 4px 8px;
+        }
+      }
+    }
+  }
+
+
+  .tui-calendar .tui-calendar-btn-prev-month.tui-hidden.tui-open::after,
+  .tui-calendar.tui-calendar-month .tui-calendar-btn-prev-year.tui-hidden.tui-open::after,
+  .tui-calendar .tui-calendar-btn-prev-year.tui-hidden.tui-open:after {
+    left: 0;
+    opacity: 0.4;
+    background-image: url('../../image/btc/btc_prev_normal_24x24.svg');
+  }
+
+  .tui-calendar .tui-calendar-btn-prev-month::after,
+  .tui-calendar.tui-calendar-month .tui-calendar-btn-prev-year::after,
+  .tui-calendar .tui-calendar-btn-prev-year::after {
+    left: 0;
+    background-image: url('../../image/btc/btc_prev_normal_24x24.svg');
+  }
+
+  .tui-calendar .tui-calendar-btn-prev-month:hover::after,
+  .tui-calendar.tui-calendar-month .tui-calendar-btn-prev-year:hover::after,
+  .tui-calendar .tui-calendar-btn-prev-year:hover::after {
+    left: 0;
+    background-image: url('../../image/btc/btc_prev_hover_24x24.svg');
+  }
+
+  .tui-calendar .tui-calendar-btn-next-month.tui-hidden.tui-open::after,
+  .tui-calendar.tui-calendar-month .tui-calendar-btn-next-year.tui-hidden.tui-open::after,
+  .tui-calendar .tui-calendar-btn-next-year.tui-hidden.tui-open:after {
+    left: 0;
+    opacity: 0.4;
+    background-image: url('../../image/btc/btc_next_normal_24x24.svg');
+  }
+
+  .tui-calendar .tui-calendar-btn-next-month::after,
+  .tui-calendar.tui-calendar-month .tui-calendar-btn-next-year::after,
+  .tui-calendar .tui-calendar-btn-next-year::after {
+    left: 0;
+    background-image: url('../../image/btc/btc_next_normal_24x24.svg');
+  }
+
+  .tui-calendar .tui-calendar-btn-next-month:hover::after,
+  .tui-calendar.tui-calendar-month .tui-calendar-btn-next-year:hover::after,
+  .tui-calendar .tui-calendar-btn-next-year:hover::after {
+    left: 0;
+    background-image: url('../../image/btc/btc_next_hover_24x24.svg');
+  }
+
+  .tui-calendar-body-header th {
+    height: 28px;
+    margin-top: 2px;
+    color: #9CA3AF;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.24px;
+  }
+
+  .datepicker__wrap .tui-calenda .tui-calendar th,
+  .tui-calendar td {
+    //캘린더 칸 부분
+    height: 28px;
+    border-radius: 0;
+  }
+
+  .tui-datepicker .tui-is-blocked,
+  // 선택 안되는 날짜
+  .tui-calendar .tui-calendar-prev-month.tui-calendar-date,
+  .tui-calendar .tui-calendar-next-month.tui-calendar-date {
+    // 이전날짜
+    visibility: visible;
+    color: inherit;
+    opacity: .4;
+  }
+
+  .tui-calendar .tui-calendar-today {
+    // 오늘 날짜
+    color: #54B6E8;
+    border: none;
+  }
+
+  .tui-calendar .tui-calendar-today.tui-is-selected {
+    // 오늘 날짜
+    color: #fff;
+    border: none;
+  }
+
+  .tui-datepicker .tui-is-selectable:hover {
+    // 날짜 호버
+    border-radius: 50%;
+    background: #6B7280;
+  }
+
+  .tui-datepicker .tui-is-selectable.tui-is-selected,
+  .tui-datepicker.tui-rangepicker .tui-is-selectable.tui-is-selected {
+    color: #FFF;
+    border-radius: 0;
+    background-color: #54B6E8;
+
+    &:hover {
+      // border-radius: 50%;
+      background-color: #54B6E8;
+    }
+  }
+
+  // 선택된 날짜 사이
+  .tui-datepicker.tui-rangepicker .tui-is-selected-range {
+    border-radius: 0;
+    background: #003986;
+
+    &:hover {
+      background: #003986;
+    }
+  }
+
+  .tui-calendar-year-group .tui-calendar th,
+  .tui-calendar-year-group .tui-calendar-year.tui-is-selectable,
+  .tui-calendar-year-group .tui-calendar-year.tui-is-selectable.tui-is-selected,
+  .tui-calendar-month-group .tui-calendar th,
+  .tui-calendar-month-group .tui-calendar-month.tui-is-selectable,
+  .tui-calendar-month-group .tui-calendar-month.tui-is-selectable.tui-is-selected {
+    width: auto;
+    height: 32px;
+    border-radius: 0;
+  }
+
+  .tui-hidden {
+    display: none;
+  }
+
+  .tui-hidden.tui-open {
+    display: inline-block;
+  }
+}

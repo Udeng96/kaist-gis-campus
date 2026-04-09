@@ -1,0 +1,218 @@
+@charset "UTF-8";
+:root {
+  --blue-light: #54B6E8;
+  --blue: #1F8DD5;
+  --blue-medium: #137CC1;
+  --blue-dark: #003986;
+  --neutral-1: #F3F4F6;
+  --neutral-2: #D1D5DB;
+  --neutral-3: #9CA3AF;
+  --neutral-4: #6B7280;
+  --neutral-5: #4E566E;
+  --neutral-6: #3A4357;
+  --neutral-7: #2A3244;
+  --neutral-75: #232B3B;
+  --neutral-8: #1C2433;
+  --neutral-9: #121826;
+  --neutral-10: #0B0F17;
+  --black: #141414;
+  --error: #F7635C;
+  --error-dark: #F2433D;
+  --warning: #FFA133;
+  --warning-dark: #E58F2D;
+  --success: #2DCC90;
+  --success-dark: #24B27D;
+  --info: #4694F7;
+  --info-dark: #3782E0;
+}
+
+.header {
+  grid-row: 1/2;
+  grid-column: 1/3;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 5px 24px;
+  color: #FFF;
+  border-bottom: 1px solid #54B6E8;
+  background: var(--neutral-8);
+}
+.header .frame {
+  display: flex;
+  align-items: center;
+  gap: 0 42px;
+}
+.header .frame--right {
+  margin-left: auto;
+}
+.header .date {
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.header .date span {
+  padding-left: 8px;
+}
+.header .weather {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+.header .weather__icon {
+  width: 33px;
+  height: 32px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.header .weather__icon.cloud {
+  background-image: url("../../image/ic/weather/img_cloud_light_32x32.svg");
+}
+.header .weather__icon.cloud-rain {
+  background-image: url("../../image/ic/weather/img_cloud-rain_light_32x32.svg");
+}
+.header .weather__icon.cloud-snow {
+  background-image: url("../../image/ic/weather/img_cloud-snow_light_32x32.svg");
+}
+.header .weather__icon.cloud-thunder {
+  background-image: url("../../image/ic/weather/img_cloud-thunder_light_32x32.svg");
+}
+.header .weather__icon.fog {
+  background-image: url("../../image/ic/weather/img_fog_light_32x32.svg");
+}
+.header .weather__icon.hazz {
+  background-image: url("../../image/ic/weather/img_hazz_light_32x32.svg");
+}
+.header .weather__icon.mist {
+  background-image: url("../../image/ic/weather/img_mist_light_32x32.svg");
+}
+.header .weather__icon.moon {
+  background-image: url("../../image/ic/weather/img_moon_light_32x32.svg");
+}
+.header .weather__icon.moon-cloud {
+  background-image: url("../../image/ic/weather/img_moon-cloud_light_32x32.svg");
+}
+.header .weather__icon.moon-cloud-less {
+  background-image: url("../../image/ic/weather/img_moon-cloud-less_light_32x32.svg");
+}
+.header .weather__icon.rain-less {
+  background-image: url("../../image/ic/weather/img_rain-less_light_32x32.svg");
+}
+.header .weather__icon.rain-snow {
+  background-image: url("../../image/ic/weather/img_rain-snow_light_32x32.svg");
+}
+.header .weather__icon.shower-rain {
+  background-image: url("../../image/ic/weather/img_shower-rain_light_32x32.svg");
+}
+.header .weather__icon.snow-less {
+  background-image: url("../../image/ic/weather/img_snow-less_light_32x32.svg");
+}
+.header .weather__icon.snow-rain {
+  background-image: url("../../image/ic/weather/img_snow-rain_light_32x32.svg");
+}
+.header .weather__icon.sun {
+  background-image: url("../../image/ic/weather/img_sun_light_32x32.svg");
+}
+.header .weather__icon.sun-cloud {
+  background-image: url("../../image/ic/weather/img_sun-cloud_light_32x32.svg");
+}
+.header .weather__icon.sun-cloud-less {
+  background-image: url("../../image/ic/weather/img_sun-cloud-less_light_32x32.svg");
+}
+.header .weather__icon.yellow-dust {
+  background-image: url("../../image/ic/weather/img_yellow-dust_light_32x32.svg");
+}
+.header .weather__text {
+  padding: 0 16px 0 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.header .weather .temp__value {
+  font-size: 16px;
+  font-weight: 500;
+}
+.header .weather .temp__value span {
+  font-size: 12px;
+  color: #E8EAED;
+}
+.header .dust {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.header .dust__view {
+  display: flex;
+  align-items: center;
+}
+.header .dust__view + .dust__view {
+  margin-left: 20px;
+}
+.header .dust__view::after {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 6px 13px;
+  border-radius: 999px;
+}
+.header .dust__view--good::after {
+  content: "좋음";
+  color: #4694F7;
+  background: rgba(70, 148, 247, 0.15);
+}
+.header .dust__view--normal::after {
+  content: "보통";
+  color: #2DCC90;
+  background: rgba(45, 204, 144, 0.15);
+}
+.header .dust__view--bad::after {
+  content: "나쁨";
+  color: #FFA133;
+  background: rgba(255, 161, 51, 0.15);
+}
+.header .dust__view--vbad::after {
+  content: "매우나쁨";
+  color: #F7635C;
+  background: rgba(247, 99, 92, 0.15);
+}
+.header .marquee {
+  width: 100%;
+  max-width: 490px;
+  height: 36px;
+  margin-left: 76px;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #FFF;
+  border-radius: 6px;
+  border: 1px solid var(--neutral-6);
+  background: var(--neutral-10);
+  overflow: hidden;
+}
+.header .marquee p {
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.header .btn--login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 82px;
+  height: 41px;
+  color: var(--neutral-1);
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid var(--neutral-5);
+}
+.header .btn--login:hover {
+  color: var(--primary-base);
+  border-color: var(--primary-base);
+}
+
+/*# sourceMappingURL=header.css.map */

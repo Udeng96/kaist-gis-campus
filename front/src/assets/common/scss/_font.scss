@@ -1,0 +1,52 @@
+// Define font path
+$font-path: '../font/';
+
+// Define weight map
+$font-weight: (
+  Thin: 100,
+  ExtraLight: 200,
+  Light: 300,
+  Regular: 400,
+  Normal: 400,
+  Medium: 500,
+  SemiBold: 600,
+  Bold: 700,
+  ExtraBold: 800,
+  Black: 900,
+);
+
+// Define font families
+$font-family: (
+  'Pretendard': (Thin, ExtraLight, Light, Regular, Medium, SemiBold, Bold, ExtraBold, Black),
+);
+
+
+// Repeat for font families
+@each $name, $weights in $font-family {
+  @debug $name;
+  @debug $weights;
+
+  // Repeat for font weights
+  @each $weight in $weights {
+    $file-name: #{$font-path}#{$name}-#{$weight};
+    $weight-value: map-get($font-weight, $weight);
+
+    @font-face {
+      font-family: '#{$name}';
+      src: url(#{$file-name}.ttf) format(truetype);
+      font-weight: #{$weight-value};
+      font-style: normal;
+    }
+  }
+}
+
+
+// $name -> NotoSans
+// $weights -> Light, Regular, Medium, Bold
+
+// // ... weights each 문 동작
+
+// $name -> NotoSansKR
+// $weights -> Light, Regular, Medium, SemiBold, Bold
+
+// // ... weights each 문 동작
