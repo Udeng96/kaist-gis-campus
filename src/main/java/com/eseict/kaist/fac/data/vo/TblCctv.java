@@ -77,8 +77,8 @@ public class TblCctv {
         cctv.health = "0";
         cctv.rtsp01 = streamId.contains("_HIGH") ? req.getRtspUrl().replace("normal", "high") : req.getRtspUrl();
         cctv.rtsp02 = "";
-        cctv.id = "admin";
-        cctv.pwd = "rhkrl!2026";
+        cctv.id = "";
+        cctv.pwd = "";
         cctv.port = 2022;
         cctv.plcType = req.getType();
         cctv.xCoord = req.getXCoord() != null ? new BigDecimal(req.getXCoord()) : null;

@@ -138,7 +138,7 @@ const CctvForm = () => {
     const handleSubmit = () => {
         const body = {
             cctvNm: cctvName,
-            ip: '172.18.16.220',
+            ip: '198.51.100.1',
             rtspUrl: rtspUrl,
             type: cctvType,
             xcoord: String(DEFAULT_CENTER[1]),
